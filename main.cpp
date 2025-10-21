@@ -72,7 +72,41 @@ void tampilDataSiswa(){
     fileOutput.close();
 }//membaca data dari file siswa.txt dan ditampilkan
 
-void cariSiswa();// berdasarkan NISN
+void cariSiswa() {
+    ifstream fileInput("Datasiswa.txt");
+    if (!fileInput.is_open()) {
+        cout << "File tidak ditemukan!" << endl;
+        return;
+    }
+
+    string nisnCari;
+    cout << "Masukkan NISN siswa yang ingin dicari: ";
+    cin.ignore(); 
+    getline(cin, nisnCari);
+
+    string baris;
+    bool ditemukan = false;
+
+    cout << "hasil pencarian" << endl;
+    while (getline(fileInput, baris)) {
+    
+        if (baris.find("NISN : " + nisnCari) != string::npos) {
+            cout << baris << endl;
+
+            if (getline(fileInput, baris)) {
+                cout << baris << endl;
+            }
+            ditemukan = true;
+            break;
+        }
+    }
+
+    if (!ditemukan) {
+        cout << "Data siswa dengan NISN " << nisnCari << " tidak ditemukan." << endl;
+    }
+
+    fileInput.close();
+}/ berdasarkan NISN
 
 float nilaiAkhir(nilai n){
     return (n.Mtk*0.4)+(n.BIn*0.2)+(n.IPA*0.3)+(n.BIn*0.2);
