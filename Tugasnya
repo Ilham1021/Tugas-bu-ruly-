@@ -45,7 +45,9 @@ void tambahDataSiswa() {
     cin >> data.Nilai.IPA;
     cin.ignore();
 
-    fileOutput << "Nama  : " << data.nama<< " - " << "NISN : " << data.NISN<< " - " << "Jurusan : "<< data.jurusan<<endl;
+    fileOutput << "Nama  : " << data.nama<< " - " 
+               << "NISN : " << data.NISN<< " - " 
+               << "Jurusan : "<< data.jurusan<<endl;
     fileOutput << "Nilai dari "<<data.nama<<" / "
                << "Matematika : "<<data.Nilai.Mtk<<", "
                << "Bahasa Indonesia : "<<data.Nilai.BIn<<", "
